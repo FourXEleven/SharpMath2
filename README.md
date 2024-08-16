@@ -1,6 +1,6 @@
 # SharpMath2
 
-![banner](imgs/banner.png)
+![banner](.github/imgs/banner.png)
 
 This is a C# math library. It is built as the bare minimum to get up and running with a 2D game in C#. It
 is compatible with or without monogame. To compile with monogame, use the compiler directive "NOT_MONOGAME".
