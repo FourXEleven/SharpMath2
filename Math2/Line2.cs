@@ -395,7 +395,7 @@ namespace SharpMath2
         /// <param name="overlap">Set to null or the line of overlap</param>
         /// <returns>True if a and b overlap at infinitely many points,
         /// false otherwise</returns>
-        public static unsafe bool LineOverlap(Line2 a, Line2 b, Vector2 pos1, Vector2 pos2, out Line2 overlap)
+        public static unsafe bool LineOverlap(Line2 a, Line2 b, Vector2 pos1, Vector2 pos2, out Line2? overlap)
         {
             if (!Parallel(a, b))
             {

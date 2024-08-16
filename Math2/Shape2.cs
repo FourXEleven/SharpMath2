@@ -56,7 +56,7 @@ namespace SharpMath2
         /// <param name="pos2">Origin of rectangle</param>
         /// <param name="rot1">Rotation of the polygon.</param>
         /// <returns>The vector to move pos1 by or null</returns>
-        public static Tuple<Vector2, float> IntersectMTV(Polygon2 poly, Rect2 rect, Vector2 pos1, Vector2 pos2, Rotation2 rot1)
+        public static Tuple<Vector2, float>? IntersectMTV(Polygon2 poly, Rect2 rect, Vector2 pos1, Vector2 pos2, Rotation2 rot1)
         {
             bool checkedX = false, checkedY = false;
 
@@ -121,7 +121,7 @@ namespace SharpMath2
         /// <param name="pos2">Origin of </param>
         /// <param name="rot2">Rotation of the polygon</param>
         /// <returns>Offset of pos1 to get rect not to intersect poly</returns>
-        public static Tuple<Vector2, float> IntersectMTV(Rect2 rect, Polygon2 poly, Vector2 pos1, Vector2 pos2, Rotation2 rot2)
+        public static Tuple<Vector2, float>? IntersectMTV(Rect2 rect, Polygon2 poly, Vector2 pos1, Vector2 pos2, Rotation2 rot2)
         {
             var res = IntersectMTV(poly, rect, pos2, pos1, rot2);
             return res != null ? Tuple.Create(-res.Item1, res.Item2) : res;
@@ -247,7 +247,7 @@ namespace SharpMath2
         /// <param name="pos2">The top-left of the circles bounding box</param>
         /// <param name="rot1">The rotation of the polygon</param>
         /// <returns></returns>
-        public static Tuple<Vector2, float> IntersectMTV(Polygon2 poly, Circle2 circle, Vector2 pos1, Vector2 pos2, Rotation2 rot1)
+        public static Tuple<Vector2, float>? IntersectMTV(Polygon2 poly, Circle2 circle, Vector2 pos1, Vector2 pos2, Rotation2 rot1)
         {
             // We have two situations, either the circle is not strictly intersecting the polygon, or
             // there exists at least one shortest line that you could push the polygon to prevent
@@ -347,7 +347,7 @@ namespace SharpMath2
         /// <param name="pos2">The origin of the polygon</param>
         /// <param name="rot2">The rotation of the polygon</param>
         /// <returns>The mtv to move the circle at pos1 to prevent overlap with the poly at pos2 with rotation rot2</returns>
-        public static Tuple<Vector2, float> IntersectMTV(Circle2 circle, Polygon2 poly, Vector2 pos1, Vector2 pos2, Rotation2 rot2)
+        public static Tuple<Vector2, float>? IntersectMTV(Circle2 circle, Polygon2 poly, Vector2 pos1, Vector2 pos2, Rotation2 rot2)
         {
             var res = IntersectMTV(poly, circle, pos2, pos1, rot2);
             if (res != null)
@@ -397,7 +397,7 @@ namespace SharpMath2
         /// <param name="pos1">The top-left of the circles bounding box</param>
         /// <param name="pos2">The rectangles origin</param>
         /// <returns>MTV for circle at pos1 to prevent overlap with rect at pos2</returns>
-        public static Tuple<Vector2, float> IntersectMTV(Circle2 circle, Rect2 rect, Vector2 pos1, Vector2 pos2)
+        public static Tuple<Vector2, float>? IntersectMTV(Circle2 circle, Rect2 rect, Vector2 pos1, Vector2 pos2)
         {
             // Same as polygon rect, just converted to rects points
             HashSet<Vector2> checkedAxis = new HashSet<Vector2>();
@@ -473,7 +473,7 @@ namespace SharpMath2
         /// <param name="pos1">The origin of the rectangle</param>
         /// <param name="pos2">The top-left of the circles bounding box</param>
         /// <returns>MTV for rect at pos1 to prevent overlap with circle at pos2</returns>
-        public static Tuple<Vector2, float> IntersectMTV(Rect2 rect, Circle2 circle, Vector2 pos1, Vector2 pos2)
+        public static Tuple<Vector2, float>? IntersectMTV(Rect2 rect, Circle2 circle, Vector2 pos1, Vector2 pos2)
         {
             var res = IntersectMTV(circle, rect, pos2, pos1);
             if (res != null)
@@ -808,7 +808,7 @@ namespace SharpMath2
         /// <param name="pos1"></param>
         /// <param name="pos2"></param>
         /// <returns></returns>
-        public static Tuple<Vector2, float> IntersectMTV(Polygon2 poly, Rect2 rect, Vector2 pos1, Vector2 pos2)
+        public static Tuple<Vector2, float>? IntersectMTV(Polygon2 poly, Rect2 rect, Vector2 pos1, Vector2 pos2)
         {
             return IntersectMTV(poly, rect, pos1, pos2, Rotation2.Zero);
         }
@@ -822,7 +822,7 @@ namespace SharpMath2
         /// <param name="pos1">The origin of the rect</param>
         /// <param name="pos2">The origin of the polygon</param>
         /// <returns>MTV to move rect at pos1 to prevent overlap with poly at pos2</returns>
-        public static Tuple<Vector2, float> IntersectMTV(Rect2 rect, Polygon2 poly, Vector2 pos1, Vector2 pos2)
+        public static Tuple<Vector2, float>? IntersectMTV(Rect2 rect, Polygon2 poly, Vector2 pos1, Vector2 pos2)
         {
             return IntersectMTV(rect, poly, pos1, pos2, Rotation2.Zero);
         }
@@ -864,7 +864,7 @@ namespace SharpMath2
         /// <param name="pos1">The position of the polygon</param>
         /// <param name="pos2">The top-left of the circles bounding box</param>
         /// <returns>MTV to move poly at pos1 to prevent overlap with circle at pos2</returns>
-        public static Tuple<Vector2, float> IntersectMTV(Polygon2 poly, Circle2 circle, Vector2 pos1, Vector2 pos2)
+        public static Tuple<Vector2, float>? IntersectMTV(Polygon2 poly, Circle2 circle, Vector2 pos1, Vector2 pos2)
         {
             return IntersectMTV(poly, circle, pos1, pos2, Rotation2.Zero);
         }
@@ -878,7 +878,7 @@ namespace SharpMath2
         /// <param name="pos1">The top-left of the circles bounding box</param>
         /// <param name="pos2">The origin of the polygon</param>
         /// <returns></returns>
-        public static Tuple<Vector2, float> IntersectMTV(Circle2 circle, Polygon2 poly, Vector2 pos1, Vector2 pos2)
+        public static Tuple<Vector2, float>? IntersectMTV(Circle2 circle, Polygon2 poly, Vector2 pos1, Vector2 pos2)
         {
             return IntersectMTV(circle, poly, pos1, pos2, Rotation2.Zero);
         }

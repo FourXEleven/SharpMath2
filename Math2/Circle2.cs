@@ -24,6 +24,7 @@ namespace SharpMath2
             Radius = radius;
         }
 
+#pragma warning disable CA2013 // Don't use ReferenceEquals with value types
         /// <summary>
         /// Determines if the first circle is equal to the second circle
         /// </summary>
@@ -51,16 +52,17 @@ namespace SharpMath2
 
             return c1.Radius != c2.Radius;
         }
-        
+#pragma warning restore CA2013 // Don't use ReferenceEquals with value types
+
         /// <summary>
         /// Determines if this circle is logically the same as the 
         /// specified object.
         /// </summary>
         /// <param name="obj">The object to compare against</param>
         /// <returns>if it is a circle with the same radius</returns>
-        public override bool Equals(object obj)
+        public override bool Equals(object? obj)
         {
-            if (obj.GetType() != typeof(Circle2))
+            if (obj is null || obj.GetType() != typeof(Circle2))
                 return false;
 
             var other = (Circle2)obj;
@@ -137,7 +139,7 @@ namespace SharpMath2
         /// <param name="pos1">Top-left of the first circles bounding box</param>
         /// <param name="pos2">Top-left of the second circles bounding box</param>
         /// <returns></returns>
-        public static Tuple<Vector2, float> IntersectMTV(Circle2 circle1, Circle2 circle2, Vector2 pos1, Vector2 pos2)
+        public static Tuple<Vector2, float>? IntersectMTV(Circle2 circle1, Circle2 circle2, Vector2 pos1, Vector2 pos2)
         {
             return IntersectMTV(circle1.Radius, circle2.Radius, pos1, pos2);
         }
@@ -152,7 +154,7 @@ namespace SharpMath2
         /// <param name="pos1"></param>
         /// <param name="pos2"></param>
         /// <returns>The direction and magnitude to move pos1 to prevent intersection</returns>
-        public static Tuple<Vector2, float> IntersectMTV(float radius1, float radius2, Vector2 pos1, Vector2 pos2)
+        public static Tuple<Vector2, float>? IntersectMTV(float radius1, float radius2, Vector2 pos1, Vector2 pos2)
         {
             var betweenVec = pos1 - pos2;
             betweenVec.X += (radius1 - radius2);

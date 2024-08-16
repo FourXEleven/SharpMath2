@@ -717,7 +717,7 @@ namespace SharpMath2
         /// <param name="rot1">Rotation of the first polyogn</param>
         /// <param name="rot2">Rotation of the second polygon</param>
         /// <returns>MTV to move poly1 to prevent intersection with poly2</returns>
-        public static Tuple<Vector2, float> IntersectMTV(Polygon2 poly1, Polygon2 poly2, Vector2 pos1, Vector2 pos2, Rotation2 rot1, Rotation2 rot2)
+        public static Tuple<Vector2, float>? IntersectMTV(Polygon2 poly1, Polygon2 poly2, Vector2 pos1, Vector2 pos2, Rotation2 rot1, Rotation2 rot2)
         {
             Vector2 bestAxis = Vector2.Zero;
             float bestMagn = float.MaxValue;
@@ -801,7 +801,7 @@ namespace SharpMath2
         /// <param name="pos">Origin of the polygon</param>
         /// <param name="rot">Rotation of the polygon</param>
         /// <param name="pt">Point to check.</param>
-        public static Tuple<Vector2, float> MinDistance(Polygon2 poly, Vector2 pos, Rotation2 rot, Vector2 pt)
+        public static Tuple<Vector2, float>? MinDistance(Polygon2 poly, Vector2 pos, Rotation2 rot, Vector2 pt)
         {
             /*
              * Definitions
@@ -895,7 +895,7 @@ namespace SharpMath2
         /// <param name="pos2">Origin of second polygon</param>
         /// <param name="rot1">Rotation of first polygon</param>
         /// <param name="rot2">Rotation of second polygon</param>
-        public static Tuple<Vector2, float> MinDistance(Polygon2 poly1, Polygon2 poly2, Vector2 pos1, Vector2 pos2, Rotation2 rot1, Rotation2 rot2)
+        public static Tuple<Vector2, float>? MinDistance(Polygon2 poly1, Polygon2 poly2, Vector2 pos1, Vector2 pos2, Rotation2 rot1, Rotation2 rot2)
         {
             if (rot1.Theta != 0 || rot2.Theta != 0)
             {
@@ -1033,7 +1033,7 @@ namespace SharpMath2
         /// <param name="pos1">Origin of first polygon</param>
         /// <param name="pos2">Origin of second polygon</param>
         /// <returns>If poly1 at pos1 not rotated intersects poly2 at pos2 not rotated</returns>
-        public static Tuple<Vector2, float> IntersectMTV(Polygon2 poly1, Polygon2 poly2, Vector2 pos1, Vector2 pos2)
+        public static Tuple<Vector2, float>? IntersectMTV(Polygon2 poly1, Polygon2 poly2, Vector2 pos1, Vector2 pos2)
         {
             return IntersectMTV(poly1, poly2, pos1, pos2, Rotation2.Zero, Rotation2.Zero);
         }
@@ -1047,7 +1047,7 @@ namespace SharpMath2
         /// <param name="pos">Position of the polygon</param>
         /// <param name="pt">Point to check</param>
         /// <returns>axis to go in, distance to go if pos is not in poly, otherwise null</returns>
-        public static Tuple<Vector2, float> MinDistance(Polygon2 poly, Vector2 pos, Vector2 pt)
+        public static Tuple<Vector2, float>? MinDistance(Polygon2 poly, Vector2 pos, Vector2 pt)
         {
             return MinDistance(poly, pos, Rotation2.Zero, pt);
         }
@@ -1061,7 +1061,7 @@ namespace SharpMath2
         /// <param name="pos1">Position of first polygon</param>
         /// <param name="pos2">Position of second polygon</param>
         /// <returns>axis to go in, distance to go if poly1 does not intersect poly2, otherwise null</returns>
-        public static Tuple<Vector2, float> MinDistance(Polygon2 poly1, Polygon2 poly2, Vector2 pos1, Vector2 pos2)
+        public static Tuple<Vector2, float>? MinDistance(Polygon2 poly1, Polygon2 poly2, Vector2 pos1, Vector2 pos2)
         {
             return MinDistance(poly1, poly2, pos1, pos2, Rotation2.Zero, Rotation2.Zero);
         }

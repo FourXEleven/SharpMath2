@@ -58,6 +58,7 @@ namespace SharpMath2
         {
         }
 
+#pragma warning disable CA2013 // Don't use ReferenceEquals with value types
         /// <summary>
         /// Determine if the two rotations have the same theta
         /// </summary>
@@ -85,15 +86,16 @@ namespace SharpMath2
 
             return r1.Theta != r2.Theta;
         }
+#pragma warning restore CA2013 // Don't use ReferenceEquals with value types
 
         /// <summary>
         /// Determine if obj is a rotation that is logically equal to this one
         /// </summary>
         /// <param name="obj">the object</param>
         /// <returns>if it is logically equal</returns>
-        public override bool Equals(object obj)
+        public override bool Equals(object? obj)
         {
-            if (obj.GetType() != typeof(Rotation2))
+            if (obj is null || obj.GetType() != typeof(Rotation2))
                 return false;
 
             return this == ((Rotation2)obj);
