@@ -1,3 +1,11 @@
+# Disclaimer
+
+⚠️ This fork of the SharpMath2 project is intended for use only in projects of our group, 4x11.  
+Original README file below may not reflect changes made in this repository.
+
+We recommend using the [original project](https://github.com/Tjstretchalot/SharpMath2) instead of this fork.
+
+
 # SharpMath2
 
 ![banner](.github/imgs/banner.png)
